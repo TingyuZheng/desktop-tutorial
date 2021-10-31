@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block header %}
+  <!-- Page Header-->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='assets/img/activities-bg.jpg') }})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+                <div class="site-heading">
+                    <h1>近期活动</h1>
+                    <span class="subheading">Recent activities</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<!-- Main Content-->
+<div class="container">
+     <div class="row">
+         <div class="col">
+             <b>活动名称</b>
+        </div>
+        <div class="col">
+            <b>费用</b>
+        </div>
+        <div class="col">
+            <b>主办方</b>        
+         </div>
+        <div class="col">
+            <b>时间</b>
+        </div>     
+     </div>
+    {% for row in  entries  %}
+    <div class="row">
+        <div class="col">
+                 {{ row["活动名称"] }}
+        </div>
+        <div class="col">
+                 {{ row["费用"] }}
+        </div>
+        <div class="col">
+                 {{ row["主办方"] }}
+        </div>
+        <div class="col">
+                 {{ row["时间"] }}
+        </div>     
+    </div><!-- end row -->
+    {% endfor %}
+</div><!-- end container -->
+<hr />
+ </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block header %}
+   <!-- Page Header-->
+        <header class="masthead" style="background-image: url({{ url_for('static', filename='assets/img/contact-bg.jpg') }})">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="page-heading">
+                            <h1>注册</h1>
+                            <span class="subheading">Register</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+{% endblock %}
+{% block content %}
+        <!-- Main Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <p>想要获取更多剧本杀最新讯息？点击注册</p>
+                       <div class="signup-form">
+                         <form method='POST' action=''>
+                              {{form.hidden_tag()}}
+                              {{form.email}}
+                              {{form.username}}
+                              {{form.password}}
+                              {{form.submit}}
+                              </form>
+                        </div>
+                        </div>
+                        <br />
+                        <div id="success"></div>
+                </div>
+            </div>
+{% endblock %}

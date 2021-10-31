@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block header %}
+  <!-- Page Header-->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='assets/img/home-bg.jpg') }})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>上海剧本杀俱乐部</h1>
+                    <span class="subheading">Murder Mystery Game in Shanghai</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<body>
+
+    <div class='navbar' style="text-align:center">
+        <nav>
+            <ul>
+                <li><a href="#">TaskKeeper</a></li>
+                <div class="links">
+                    <li><a href="{{url_for('view_tasks')}}">My Tasks</a></li>
+                    <li><a href="{{url_for('new_task')}}">New Task</a></li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>My Tasks</h1>
+
+    {% for task in tasks %}
+        <div class="task">
+            <center><h3>{{task.title}}</h3> </center>
+            <center><p>{{task.task_body}}</p></center>
+            <center><a href="{{url_for('delete_task', task_id=task.id)}}">Delete</a></center>
+        </div>
+    {% endfor %}
+
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1 {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .navbar {
+            height: 80px;
+            background: black;
+        }
+
+        .navbar > nav > ul {
+            display: flex;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 30px;
+            justify-content: space-between;
+        }
+
+        .navbar > nav > ul > li > a {
+            color: #0077ff;
+            text-decoration: none;
+
+        }
+
+        .links {
+            display: flex;
+        }
+
+
+        .links > li > a {
+            color: #0077ff;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .links > li > a:hover {
+            background-color: white;
+            padding: 10px;
+            color: #0077ff;
+            border-radius: 4px;
+            transition: .3s;
+        }
+
+
+        .note {
+            margin-top: 15px;
+            padding: 10px;
+            margin-left: 40%;
+            margin-right: 40%;
+            border: 1px solid black;
+        }
+    </style>
+    
+</body>
+{% endblock %}
